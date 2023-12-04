@@ -23,6 +23,9 @@ export function formatBytes(bytes, decimals = 2) {
 export function isPathExists(path) {
 	return fs.access(path).then(() => true).catch(() => false)
 }
+export function isFileExists(path) {
+	return fs.stat(path).then(() => true).catch(() => false)
+}
 
 export async function ensureDir(path) {
 	if (!await isPathExists(path)) {
